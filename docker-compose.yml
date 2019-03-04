@@ -29,6 +29,7 @@ mhdgc-nginx:
    - "80:80"
   links:
    - mhdgc-php-fpm
+   - mhdgc-redis
 
 mhdgc-php-fpm:
   build: .
@@ -39,3 +40,4 @@ mhdgc-php-fpm:
     - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
   links:
     - mhdgc-mysql
+    - mhdgc-redis
